@@ -3,7 +3,18 @@ on:
   pull_request:
     types:
       - opened
+    branches:
+      - main
+      - "dev-*" # pozwala na nazwe ale bez slashy
+      - "feature/**" # pozwala na slashe
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      - "dev-*" # pozwala na nazwe ale bez slashy
+      - "feature/**" # pozwala na slashe
+    paths-ignore:
+      - ".github/workflows/*"
 jobs:
   deploy:
     runs-on: ubuntu-latest
